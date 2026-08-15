@@ -7,7 +7,13 @@
 <p align="center">
 Modern SOC Analyst & Threat Intelligence Toolkit
 </p>
+<p align="center">
 
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/badge/License-GPLv3-green)
+
+</p>
 A modern SOC Analyst and Threat Intelligence Toolkit designed to accelerate IOC investigation, threat hunting, incident response, and security operations workflows.
 
 ---
