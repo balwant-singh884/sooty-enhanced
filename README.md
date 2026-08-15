@@ -1,4 +1,12 @@
-# Sooty Enhanced
+<p align="center">
+  <img src="readmeimages/sooty_enhanced_logo.png" width="250">
+</p>
+
+<h1 align="center">Sooty Enhanced</h1>
+
+<p align="center">
+Modern SOC Analyst & Threat Intelligence Toolkit
+</p>
 
 A modern SOC Analyst and Threat Intelligence Toolkit designed to accelerate IOC investigation, threat hunting, incident response, and security operations workflows.
 
