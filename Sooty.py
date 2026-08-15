@@ -105,6 +105,13 @@ def iocInvestigator():
     print("\n[+] IOC: " + ioc)
     print("[+] IOC Type: " + ioc_type)
 
+    if ioc_type in ["IPv4", "IPv6"]:
+        try:
+            hostname = socket.gethostbyaddr(ioc)[0]
+            print("[+] Reverse DNS: " + hostname)
+        except:
+            print("[+] Reverse DNS: Not found")
+
     mainMenu()
 
 
