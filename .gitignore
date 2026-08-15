@@ -18,3 +18,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 __pycache__old_requirements_backup.txt
+__pycache__/
+Modules/__pycache__/
