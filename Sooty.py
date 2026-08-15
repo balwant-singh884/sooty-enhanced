@@ -23,6 +23,7 @@ import requests
 from ipwhois import IPWhois
 import tkinter
 import sys
+import ipaddress
 
 from Modules import iplists
 from Modules import phishtank
@@ -48,26 +49,88 @@ linksRatingList = []
 linksSanitized = []
 linksDict = {}
 
+versionNo = '1.3.2'
+
+
+
+def classifyIOC(ioc):
+    ioc = ioc.strip()
+
+    # IPv4 / IPv6
+    try:
+        ipaddress.ip_address(ioc)
+        if ":" in ioc:
+            return "IPv6"
+        return "IPv4"
+    except ValueError:
+        pass
+
+    # Email
+    if re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", ioc):
+        return "Email"
+
+    # URL
+    if re.match(r"^https?://", ioc, re.IGNORECASE):
+        return "URL"
+
+    # Hash
+    if re.fullmatch(r"[a-fA-F0-9]{32}", ioc):
+        return "MD5"
+
+    if re.fullmatch(r"[a-fA-F0-9]{40}", ioc):
+        return "SHA-1"
+
+    if re.fullmatch(r"[a-fA-F0-9]{64}", ioc):
+        return "SHA-256"
+
+    # Domain
+    if re.fullmatch(r"(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}", ioc):
+        return "Domain"
+
+    return "Unknown"
+def iocInvestigator():
+    print("\n --------------------------------- ")
+    print("       I O C   I N V E S T I G A T O R")
+    print(" --------------------------------- ")
+
+    ioc = input("Enter IOC: ").strip()
+
+    if not ioc:
+        print("No IOC provided.")
+        mainMenu()
+        return
+
+    ioc_type = classifyIOC(ioc)
+
+    print("\n[+] IOC: " + ioc)
+    print("[+] IOC Type: " + ioc_type)
+
+    mainMenu()
+
+
 def switchMenu(choice):
     if choice == '1':
         urlSanitise()
-    if choice == '2':
+    elif choice == '2':
         decoderMenu()
-    if choice == '3':
+    elif choice == '3':
         repChecker()
-    if choice == '4':
+    elif choice == '4':
         dnsMenu()
-    if choice == '5':
+    elif choice == '5':
         hashMenu()
-    if choice == '6':
+    elif choice == '6':
         phishingMenu()
-    if choice == '7':
+    elif choice == '7':
         urlscanio()
-    if choice == '9':
+    elif choice == '8':
+        iocInvestigator()
+    elif choice == '9':
         extrasMenu()
-    if choice == '0':
+    elif choice == '0':
         sys.exit("Exiting Sooty... done")
     else:
+        print("Invalid option. Please choose a valid option.")
         mainMenu()
 
 def decoderSwitch(choice):
@@ -186,6 +249,7 @@ def mainMenu():
     print(" OPTION 5: Hashing Function")
     print(" OPTION 6: Phishing Analysis")
     print(" OPTION 7: URL scan")
+    print(" OPTION 8: IOC Investigator")
     print(" OPTION 9: Extras")
     print(" OPTION 0: Exit Tool")
     switchMenu(input())
