@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="readmeimages/sooty_enhanced_logo.png" width="250">
+  <img src="sooty%20enhanced.png" width="500">
 </p>
 
 <h1 align="center">Sooty Enhanced</h1>
