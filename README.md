@@ -228,6 +228,50 @@ within a single platform.
 
 ---
 
+## Modernization Progress
+
+Sooty Enhanced is undergoing a complete modernization effort to transform the original project into a modern SOC Analyst and Threat Intelligence platform.
+
+### Completed
+
+- IOC Investigator Module
+- IOC Classification Engine
+- Reverse DNS Lookup
+- Python 3.13 Compatibility Improvements
+- Dependency Modernization
+- Updated Project Documentation
+- Enhanced Git Development Workflow
+- Custom Project Branding
+
+### In Progress
+
+- ASN Lookup
+- Organization Lookup
+- Country Lookup
+- Improved IOC Enrichment
+
+### Planned
+
+- VirusTotal Integration
+- AbuseIPDB Integration
+- AlienVault OTX Integration
+- IOC Correlation Engine
+- PDF Report Generation
+- Threat Intelligence Dashboard
+- Reporting Engine
+- Case Management System
+
+### Long-Term Vision
+
+Build a unified platform for:
+
+- IOC Investigation
+- Threat Intelligence
+- Threat Hunting
+- Incident Response
+- Security Operations
+- Security Reporting
+- SOC Workflow Automation
 ## Maintainer
 
 ### Balwant Singh
