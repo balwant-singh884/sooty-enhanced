@@ -216,3 +216,24 @@ Sooty is now proudly supported by [Tines.com](https://tines.com?utm_source=githu
  - [mrn42](https://github.com/mrn42) for adding Docker documentation to the readme
 
  ![](readmeimages/vt_hashchecker.gif)
+## Enhancements Added
+
+### IOC Investigator
+- IOC classification engine
+- IPv4 detection
+- IPv6 detection
+- URL detection
+- Domain detection
+- Email detection
+- MD5 detection
+- SHA1 detection
+- SHA256 detection
+
+## Roadmap
+
+### Planned Features
+- VirusTotal Integration
+- AbuseIPDB Integration
+- AlienVault OTX Integration
+- PDF Report Generation
+- IOC Correlation Engine
