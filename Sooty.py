@@ -479,16 +479,22 @@ def repChecker():
         print(' Email Detected...')
         analyzeEmail(''.join(s))
     else:
+        # Handle URLs properly
+        clean_ip = ip
 
-        whoIsPrint(ip)
-        wIP = socket.gethostbyname(ip)
+        if clean_ip.startswith("http://") or clean_ip.startswith("https://"):
+            clean_ip = urllib.parse.urlparse(clean_ip).netloc
+
+        whoIsPrint(clean_ip)
+        wIP = socket.gethostbyname(clean_ip)
+
         now = datetime.now()
-
         today = now.strftime("%m-%d-%Y")
 
         if not os.path.exists('output/'+today):
             os.makedirs('output/'+today)
-        f= open('output/'+today+'/'+str(rawInput) + ".txt","a+")
+        safe_filename = re.sub(r'[^a-zA-Z0-9._-]', '_', clean_ip)
+        f = open('output/' + today + '/' + safe_filename + ".txt", "a+")
 
         print("\n VirusTotal Report:")
         f.write("\n --------------------------------- ")
