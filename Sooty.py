@@ -106,11 +106,22 @@ def iocInvestigator():
     print("[+] IOC Type: " + ioc_type)
 
     if ioc_type in ["IPv4", "IPv6"]:
-        try:
-            hostname = socket.gethostbyaddr(ioc)[0]
-            print("[+] Reverse DNS: " + hostname)
-        except:
-            print("[+] Reverse DNS: Not found")
+       try:
+           hostname = socket.gethostbyaddr(ioc)[0]
+           print("[+] Reverse DNS: " + hostname)
+       except:
+           print("[+] Reverse DNS: Not found")
+
+       try:
+           obj = IPWhois(ioc)
+           result = obj.lookup_rdap()
+
+           print("[+] ASN: " + str(result.get("asn", "Unknown")))
+           print("[+] Organization: " + str(result.get("asn_description", "Unknown")))
+           print("[+] Country: " + str(result.get("asn_country_code", "Unknown")))
+
+       except Exception:
+           print("[+] ASN Information: Not available")
 
     mainMenu()
 
