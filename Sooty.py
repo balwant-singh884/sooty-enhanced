@@ -395,15 +395,26 @@ def urlscanio():
             print("urlscan.io: " + str(scan_results['verdicts']['urlscan']['score']))
             if scan_results['verdicts']['urlscan']['malicious']:
                 print("Malicious: " + str(scan_results['verdicts']['urlscan']['malicious'])) # True
-            if scan_results['verdicts']['urlscan']['categories']:
-                print("Categories: ")
-            for line in scan_results['verdicts']['urlscan']['categories']:
-                print("\t"+ str(line)) # phishing
-            for line in scan_results['verdicts']['engines']['verdicts']:
-                print(str(line['engine']) + " score: " + str(line['score'])) # googlesafebrowsing
-                print("Categories: ")
-                for item in line['categories']:
-                    print("\t" + item) # social_engineering
+            categories = scan_results['verdicts']['urlscan'].get('categories', [])
+
+            if categories:
+                print("Categories:")
+                for line in categories:
+                    print("\t" + str(line))
+
+            
+
+            engine_data = scan_results['verdicts'].get('engines', {})
+
+            print("\nEngine Summary:")
+            print("Total Engines: " + str(engine_data.get('enginesTotal', 0)))
+            print("Malicious Verdicts: " + str(engine_data.get('maliciousTotal', 0)))
+            print("Benign Verdicts: " + str(engine_data.get('benignTotal', 0)))
+
+            if engine_data.get('tags'):
+                print("Tags:")
+                for tag in engine_data['tags']:
+                    print("\t" + str(tag))
             print("\nSee full report for more details: " + str(task_report_URL))
             print('')
         else:
