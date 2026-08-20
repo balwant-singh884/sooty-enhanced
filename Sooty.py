@@ -380,7 +380,8 @@ def urlscanio():
             print('\nNow scanning %s. Check back in around 1 minute.' % url_to_scan)
             uuid_variable = str(response['uuid']) # uuid, this is the factor that identifies the scan
             time.sleep(45) # sleep for 45 seconds. The scan takes awhile, if we try to retrieve the scan too soon, it will return an error.
-            scan_results = requests.get('https://urlscan.io/api/v1/result/%s/' % uuid_variable).json() # retrieving the scan using the uuid for this scan
+            scan_results = requests.get('https://urlscan.io/api/v1/result/%s/' % uuid_variable,headers=headers).json() # retrieving the scan using the uuid for this scan
+            
 
             task_url = scan_results['task']['url']
             verdicts_overall_score = scan_results['verdicts']['overall']['score']
@@ -407,8 +408,8 @@ def urlscanio():
             print('')
         else:
             print(response['message'])
-    except:
-        print(' Error reaching URLScan.io')
+    except Exception as e:
+        print("DEBUG ERROR:", e)
 
 def unshortenUrl():
     print("\n --------------------------------- ")
