@@ -22,6 +22,7 @@ import urllib.parse
 import requests
 from ipwhois import IPWhois
 import tkinter
+from tkinter import filedialog
 import sys
 import ipaddress
 
@@ -731,7 +732,7 @@ def hashMenu():
 
 def hashFile():
     root = tkinter.Tk()
-    root.filename = tkinter.filedialog.askopenfilename(initialdir="/", title="Select file")
+    root.filename = filedialog.askopenfilename(initialdir="/", title="Select file")
     hasher = hashlib.md5()
     with open(root.filename, 'rb') as afile:
         buf = afile.read()
