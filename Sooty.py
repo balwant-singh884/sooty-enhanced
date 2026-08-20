@@ -992,10 +992,15 @@ def analyzeEmail(email):
         print('\n Email Analysis Report ')
         if response.status_code == 400:
             print(' Invalid Email / Bad Request')
+            return
+
         if response.status_code == 401:
-            print(' Unauthorized / Invalid API Key (for Authenticated Requests)')
+            print(' Unauthorized / Invalid API Key')
+            return
+
         if response.status_code == 429:
-            print(' Too many requests, ')
+            print(' Too many requests. EmailRep API key required or rate limit exceeded.')
+            return
         if response.status_code == 200:
             now = datetime.now() # current date and time
             today = now.strftime("%m-%d-%Y")
