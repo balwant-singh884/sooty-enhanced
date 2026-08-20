@@ -658,6 +658,7 @@ def whoIs():
     dnsMenu()
 
 def whoIsPrint(ip):
+    c=0
     try:
         w = IPWhois(ip)
         w = w.lookup_whois()
