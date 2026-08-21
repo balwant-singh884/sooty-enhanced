@@ -36,7 +36,7 @@ try:
 except:
     print('Cant install Win32com package')
 
-versionNo = '1.3.2'
+versionNo = '1.4.0'
 
 try:
     f = open("config.yaml", "r")
@@ -50,7 +50,6 @@ linksRatingList = []
 linksSanitized = []
 linksDict = {}
 
-versionNo = '1.3.2'
 
 
 
@@ -1218,7 +1217,9 @@ def extrasMenu():
     extrasSwitch(input())
 
 def aboutSooty():
-    print(' SOOTY is a tool developed and targeted to help automate some tasks that SOC Analysts perform.')
+    print(' SOOTY - Enhanced Community Edition')
+    print(' Maintained by Balwant Singh')
+    print(' Based on the original SOOTY project by TheresAFewConors')
     extrasMenu()
 
 def contributors():
@@ -1234,6 +1235,15 @@ def contributors():
     print(" Naveci for numerous bug fixes, QoL improvements, and Cisco Password 7 Decoding, and introduced a workflow to helps with issues in future. Phishtank support has now also been added.")
     print(" Paralax for fixing typos in the readme")
     print(" MrMeeseeks2014 fox fixing a bug relating to hash uploads")
+    print("")
+    print(" Additional Contributions")
+    print(" Balwant Singh")
+    print("  - ASN Enrichment")
+    print("  - IOC Investigator Enhancements")
+    print("  - Decoder Fixes")
+    print("  - Reputation Checker Improvements") 
+    print("  - URLScan Improvements")
+    print("  - Kali Linux Compatibility Testing")
 
     extrasMenu()
 
