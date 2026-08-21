@@ -1217,34 +1217,28 @@ def extrasMenu():
     extrasSwitch(input())
 
 def aboutSooty():
-    print(' SOOTY - Enhanced Community Edition')
-    print(' Maintained by Balwant Singh')
-    print(' Based on the original SOOTY project by TheresAFewConors')
+    print(" SOOTY ENHANCED")
+    print(" SOC Analyst & Threat Intelligence Toolkit")
+    print(" Developed and maintained by Balwant Singh.")
+    print(" Designed for IOC investigation, threat enrichment, reputation analysis, phishing investigation and SOC workflows.")
     extrasMenu()
 
 def contributors():
-    print(' CONTRIBUTORS')
+    print(" PROJECT MAINTAINER")
+    print(" Balwant Singh")
+    print("")
+    print(" ORIGINAL SOOTY CONTRIBUTORS")
     print(" Aaron J Copley for his code to decode ProofPoint URL's")
-    print(" James Duarte for adding a hash and auto-check option to the hashing function ")
+    print(" James Duarte for adding a hash and auto-check option to the hashing function")
     print(" mrpnkt for adding the missing whois requirement to requirements.txt")
     print(" Gurulhu for adding the Base64 Decoder to the Decoders menu.")
     print(" AndThenEnteredAlex for adding the URLScan Function from URLScan.io")
     print(" Eric Kelson for fixing pywin32 requirement not necessary on Linux systems in requirements.txt.")
-    print(" Jenetiks for removing and tidying up duplicate imports that had accumulated over time.")
-    print(" Nikosch86 for fixing an issue with Hexdigest not storing hashes correctly")
-    print(" Naveci for numerous bug fixes, QoL improvements, and Cisco Password 7 Decoding, and introduced a workflow to helps with issues in future. Phishtank support has now also been added.")
-    print(" Paralax for fixing typos in the readme")
-    print(" MrMeeseeks2014 fox fixing a bug relating to hash uploads")
-    print("")
-    print(" Additional Contributions")
-    print(" Balwant Singh")
-    print("  - ASN Enrichment")
-    print("  - IOC Investigator Enhancements")
-    print("  - Decoder Fixes")
-    print("  - Reputation Checker Improvements") 
-    print("  - URLScan Improvements")
-    print("  - Kali Linux Compatibility Testing")
-
+    print(" Jenetiks for removing and tidying up duplicate imports.")
+    print(" Nikosch86 for fixing Hexdigest issues.")
+    print(" Naveci for bug fixes and QoL improvements.")
+    print(" Paralax for fixing typos in the README.")
+    print(" MrMeeseeks2014 for fixing hash upload bugs.")
     extrasMenu()
 
 def extrasVersion():
@@ -1252,13 +1246,12 @@ def extrasVersion():
     extrasMenu()
 
 def wikiLink():
-    print('\n The Sooty Wiki can be found at the following link:')
-    print(' https://github.com/TheresAFewConors/Sooty/wiki')
+    print("\n Documentation Wiki currently under development.")
     extrasMenu()
 
 def ghLink():
-    print('\n The Sooty Repo can be found at the following link:')
-    print(' https://github.com/TheresAFewConors/Sooty')
+    print("\n GitHub Repository:")
+    print(" https://github.com/balwant-singh884/sooty-enhanced")
     extrasMenu()
 
 if __name__ == '__main__':
