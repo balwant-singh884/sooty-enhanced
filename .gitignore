@@ -22,3 +22,5 @@ __pycache__/
 Modules/__pycache__/
 
 config/api_keys.json
+output/
+*.bak
