@@ -528,9 +528,13 @@ def repChecker():
     ip = str(rawInput[0])
 
     s = re.findall(r'\S+@\S+', ip)
+
     if s:
         print(' Email Detected...')
         analyzeEmail(''.join(s))
+        mainMenu()
+        return
+
     else:
         # Handle URLs properly
         clean_ip = ip
