@@ -219,8 +219,7 @@ def hashSwitch(choice):
         mainMenu()
 
 def phishingSwitch(choice):
-    if choice == '1':
-        analyzePhish()
+    
     if choice == '2':
         analyzeEmailInput()
     if choice == '3':
@@ -868,147 +867,13 @@ def phishingMenu():
     print("          P H I S H I N G          ")
     print(" --------------------------------- ")
     print(" What would you like to do? ")
-    print(" OPTION 1: Analyze an Email ")
+    
     print(" OPTION 2: Analyze an Email Address for Known Activity")
     print(" OPTION 3: Generate an Email Template based on Analysis")
     print(" OPTION 4: Analyze an URL with Phishtank")
     print(" OPTION 9: HaveIBeenPwned")
     print(" OPTION 0: Exit to Main Menu")
     phishingSwitch(input())
-
-def analyzePhish():
-    try:
-        file = tkinter.filedialog.askopenfilename(initialdir="/", title="Select file")
-        with open(file, encoding='Latin-1') as f:
-            msg = f.read()
-
-        # Fixes issue with file name / dir name exceptions
-        file = file.replace('//', '/')  # dir
-        file2 = file.replace(' ', '')   # file name (remove spaces / %20)
-        os.rename(file, file2)
-        outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
-        msg = outlook.OpenSharedItem(file)
-    except:
-        print(' Error Opening File')
-
-    print("\n Extracting Headers...")
-    try:
-        print("   FROM:      ", str(msg.SenderName), ", ", str(msg.SenderEmailAddress))
-        print("   TO:        ", str(msg.To))
-        print("   SUBJECT:   ", str(msg.Subject))
-        print("   NameBehalf:", str(msg.SentOnBehalfOfName))
-        print("   CC:        ", str(msg.CC))
-        print("   BCC:       ", str(msg.BCC))
-        print("   Sent On:   ", str(msg.SentOn))
-        print("   Created:   ", str(msg.CreationTime))
-        s = str(msg.Body)
-    except:
-        print('   Header Error')
-        f.close()
-
-    print("\n Extracting Links... ")
-    try:
-        match = r"((www\.|http://|https://)(www\.)*.*?(?=(www\.|http://|https://|$)))"
-        a = re.findall(match, msg.Body, re.M | re.I)
-        for b in a:
-            match = re.search(r'https://urldefense.proofpoint.com/(v[0-9])/', b[0])
-            if match:
-                if match.group(1) == 'v1':
-                    decodev1(b[0])
-                elif match.group(1) == 'v2':
-                    decodev2(b[0])
-            else:
-                if b[0] not in linksFoundList:
-                    linksFoundList.append(b[0])
-        if len(a) == 0:
-            print(' No Links Found...')
-    except:
-        print('   Links Error')
-        f.close()
-
-    for each in linksFoundList:
-        print('   %s' % each)
-
-    print("\n Extracting Emails Addresses... ")
-    try:
-        match = r'([\w0-9._-]+@[\w0-9._-]+\.[\w0-9_-]+)'
-        emailList = list()
-        a = re.findall(match, s, re.M | re.I)
-
-        for b in a:
-            if b not in emailList:
-                emailList.append(b)
-                print(" ", b)
-            if len(emailList) == 0:
-                print('   No Emails Found')
-
-        if len(a) == 0:
-            print('   No Emails Found...')
-    except:
-        print('   Emails Error')
-        f.close()
-
-    print("\n Extracting IP's...")
-    try:
-        ipList = []
-        foundIP = re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', s)
-        ipList.append(foundIP)
-
-        if not ipList:
-            for each in ipList:
-                print(each)
-        else:
-            print('   No IP Addresses Found...')
-    except:
-        print('   IP error')
-
-    try:
-        analyzeEmail(msg.SenderEmailAddress)
-    except:
-        print('')
-
-    phishingMenu()
-
-def haveIBeenPwned():
-    print("\n --------------------------------- ")
-    print(" H A V E   I   B E E N   P W N E D  ")
-    print(" --------------------------------- ")
-
-    try:
-        acc = str(input(' Enter email: ').strip())
-        haveIBeenPwnedPrintOut(acc)
-    except:
-        print('')
-    phishingMenu()
-
-def haveIBeenPwnedPrintOut(acc):
-    try:
-        url = 'https://haveibeenpwned.com/api/v3/breachedaccount/%s' % acc
-        userAgent = 'Sooty'
-        headers = {'Content-Type': 'application/json', 'hibp-api-key': configvars.data['HIBP_API_KEY'], 'user-agent': userAgent}
-        try:
-            req = requests.get(url, headers=headers)
-            response = req.json()
-            lr = len(response)
-            if lr != 0:
-                print('\n The account has been found in the following breaches: ')
-                for each in range(lr):
-                    breach = 'https://haveibeenpwned.com/api/v3/breach/%s' % response[each]['Name']
-                    breachReq = requests.get(breach, headers=headers)
-                    breachResponse = breachReq.json()
-
-                    breachList = []
-                    print('\n   Title:        %s' % breachResponse['Title'])
-                    print('   Domain:       %s' % breachResponse['Domain'])
-                    print('   Breach Date:  %s' % breachResponse['BreachDate'])
-                    print('   Pwn Count:    %s' % breachResponse['PwnCount'])
-                    for each in breachResponse['DataClasses']:
-                        breachList.append(each)
-                    print('   Data leaked: %s' % breachList)
-        except:
-            print(' No Entries found in Database')
-    except:
-        print('')
 
 def analyzeEmailInput():
     print("\n --------------------------------- ")
