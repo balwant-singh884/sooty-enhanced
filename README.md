@@ -1,140 +1,162 @@
 <p align="center">
-  <img src="sooty%20enhanced.png" width="500">
+  <img src="sooty enhanced.png" width="700">
 </p>
 
 <h1 align="center">Sooty Enhanced</h1>
 
 <p align="center">
-Modern SOC Analyst & Threat Intelligence Toolkit
+SOC Analyst • Threat Intelligence • IOC Investigation Toolkit
 </p>
+
 <p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue)
+![Platform](https://img.shields.io/badge/Platform-Kali%20Linux%20%7C%20Ubuntu-orange)
+![Version](https://img.shields.io/badge/Version-1.4.0-red)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-GPLv3-green)
 
 </p>
-A modern SOC Analyst and Threat Intelligence Toolkit designed to accelerate IOC investigation, threat hunting, incident response, and security operations workflows.
 
 ---
 
-## Overview
+# 🚀 About
 
-Sooty Enhanced is an actively maintained and enhanced fork of the original Sooty project. The goal of this project is to evolve Sooty into a modern SOC Analyst platform capable of performing IOC investigation, threat intelligence enrichment, reputation analysis, incident response support, and security operations automation from a single interface.
+Sooty Enhanced is a modernized SOC Analyst and Threat Intelligence toolkit designed to help cybersecurity professionals, blue teams, incident responders, and students perform rapid IOC investigation, threat enrichment, reputation analysis, phishing investigations, DNS intelligence, and security operations tasks from a single command-line interface.
 
-This project is currently under active development with new features being added regularly.
+Built upon the original open-source **Sooty** project, this enhanced version introduces new intelligence capabilities, bug fixes, modern compatibility improvements, and additional investigation workflows aimed at improving analyst efficiency.
 
----
-
-## Key Features
-
-### IOC Investigation
-
-- IOC Classification Engine
-- IPv4 Detection
-- IPv6 Detection
-- Domain Detection
-- URL Detection
-- Email Detection
-- MD5 Detection
-- SHA1 Detection
-- SHA256 Detection
-
-### Threat Intelligence
-
-- Reverse DNS Lookup
-- Reputation Analysis
-- DNS Investigation
-- WHOIS Analysis
-- Threat Enrichment
-
-### Security Operations
-
-- URL Analysis
-- Email Analysis
-- Hash Analysis
-- IOC Enrichment
-- Incident Response Support
+Whether you are investigating suspicious IP addresses, domains, URLs, email addresses, or file hashes, Sooty Enhanced provides a lightweight platform for performing common SOC and Threat Intelligence operations.
 
 ---
 
-## Current Capabilities
+# ✨ Features
 
-### URL Utilities
-
-- URL Sanitization
-- URL Decoding
-- URL Unshortening
-- SafeLink Decoding
-- ProofPoint Decoding
-- Unfurl URL Analysis
-
-### DNS & Network Analysis
-
-- Reverse DNS Lookup
-- DNS Lookup
-- WHOIS Lookup
-
-### Reputation Analysis
-
-- VirusTotal Checks
-- AbuseIPDB Checks
-- BadIPs Checks
-- TOR Exit Node Detection
-- URLScan Integration
-
-### Email Security
-
-- Email Header Analysis
-- Email Address Reputation Analysis
-- Phishing Investigation
-- HaveIBeenPwned Checks
-
-### Hash Analysis
-
-- File Hash Generation
-- Hash Verification
-- Threat Intelligence Lookup
+| Module | Capabilities |
+|----------|-------------|
+| 🔍 IOC Investigator | IOC Classification, ASN Lookup, Organization Intelligence, Country Intelligence |
+| 🌐 DNS Toolkit | DNS Lookup, Reverse DNS Lookup, WHOIS Analysis |
+| 🛡️ Reputation Checker | VirusTotal, AbuseIPDB, BadIPs, TOR Exit Node Detection |
+| 📧 Email Security | Email Reputation Analysis, HIBP Checks, Phishing Investigation |
+| 🔗 URL Analysis | URLScan Integration, URL Decoding, URL Sanitization |
+| 🔐 Hash Analysis | MD5, SHA1, SHA256 Generation & Threat Intelligence Lookup |
+| 📊 Threat Intelligence | IOC Enrichment & Investigation Workflows |
+| ⚙️ SOC Operations | Investigation Support & Threat Hunting Assistance |
 
 ---
 
-## Enhancements Added
+# 🆕 What's New in v1.4.0
 
-### Version 2.0 Enhancements
+## Added
 
 - IOC Investigator Module
 - IOC Classification Engine
-- Reverse DNS Lookup
-- Python 3.13 Compatibility Improvements
-- Dependency Modernization
-- Enhanced Development Workflow
-- GitHub Development Branch Structure
+- ASN Intelligence Lookup
+- Organization Intelligence Lookup
+- Country Intelligence Lookup
+- Reverse DNS Integration
+- Improved IOC Enrichment
+
+## Improved
+
+- Domain Reputation Analysis
+- URL Processing Logic
+- Error Handling
+- Linux Compatibility
+- Python 3.13 Support
+- Investigation Workflow
+
+## Fixed
+
+- Proofpoint Decoder Issues
+- URLScan Integration Problems
+- Domain Resolution Bugs
+- Reputation Checker Bugs
+- Multiple Navigation Issues
+- Output Handling Improvements
 
 ---
 
-## Screenshots
+# 📸 Screenshots
 
-### Main Menu
+## Main Menu
 
-*Screenshot Coming Soon*
+![Main Menu](readmeimages/main-menu.png)
 
-### IOC Investigator
-
-*Screenshot Coming Soon*
-
-### Reverse DNS Lookup
-
-*Screenshot Coming Soon*
-
-### Threat Intelligence Dashboard
-
-*Planned Feature*
+> 📸 INSERT MAIN MENU SCREENSHOT HERE
 
 ---
 
-## Installation
+## IOC Investigator
 
-### Kali Linux / Ubuntu
+![IOC Investigator](readmeimages/ioc-investigator.png)
+
+> 📸 INSERT IOC INVESTIGATOR SCREENSHOT HERE
+
+---
+
+## Reputation Checker
+
+![Reputation Checker](readmeimages/reputation-checker.png)
+
+> 📸 INSERT REPUTATION CHECKER SCREENSHOT HERE
+
+---
+
+## DNS Toolkit
+
+![DNS Toolkit](readmeimages/dns-toolkit.png)
+
+> 📸 INSERT DNS TOOLKIT SCREENSHOT HERE
+
+---
+
+## URLScan Analysis
+
+![URLScan Analysis](readmeimages/urlscan-analysis.png)
+
+> 📸 INSERT URLSCAN SCREENSHOT HERE
+
+---
+
+## Hash Analysis
+
+![Hash Analysis](readmeimages/hash-analysis.png)
+
+> 📸 INSERT HASH ANALYSIS SCREENSHOT HERE
+
+---
+
+# 🔎 IOC Investigation Example
+
+### Input
+
+```text
+8.8.8.8
+```
+
+### Output
+
+```text
+========================================
+      IOC INTELLIGENCE SUMMARY
+========================================
+
+IOC           : 8.8.8.8
+Type          : IPv4
+Reverse DNS   : dns.google
+ASN           : 15169
+Organization  : GOOGLE - Google LLC
+Country       : US
+
+========================================
+```
+
+---
+
+# 🛠️ Installation
+
+## Kali Linux / Ubuntu
 
 Clone the repository:
 
@@ -156,7 +178,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Launch the application:
+Run the application:
 
 ```bash
 python3 Sooty.py
@@ -164,133 +186,203 @@ python3 Sooty.py
 
 ---
 
-## Docker
+# ⚙️ Configuration
+
+Copy the example configuration:
+
+```bash
+cp example_config.yaml config.yaml
+```
+
+Edit the configuration file and add your API keys.
+
+Supported services:
+
+- VirusTotal
+- AbuseIPDB
+- URLScan
+- HaveIBeenPwned
+- EmailRep (Optional)
+
+Example:
+
+```yaml
+VT_API_KEY: YOUR_KEY_HERE
+ABUSEIPDB_API_KEY: YOUR_KEY_HERE
+URLSCAN_API_KEY: YOUR_KEY_HERE
+HIBP_API_KEY: YOUR_KEY_HERE
+EMAILREP_API_KEY: YOUR_KEY_HERE
+```
+
+---
+
+# 🐳 Docker
+
+Build image:
 
 ```bash
 docker build -t sooty-enhanced .
+```
+
+Run container:
+
+```bash
 docker run --rm -it sooty-enhanced
 ```
 
 ---
 
-## Usage Example
-
-IOC Investigation:
+# 📂 Project Structure
 
 ```text
-IOC: 8.8.8.8
-IOC Type: IPv4
-Reverse DNS: dns.google
+Sooty/
+│
+├── Modules/
+│   ├── Reputation
+│   ├── URLScan
+│   ├── DNS
+│   ├── Decoders
+│   └── Intelligence Modules
+│
+├── config/
+├── readmeimages/
+├── output/
+│
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── example_config.yaml
+└── Sooty.py
 ```
 
 ---
 
-## Roadmap
+# 🎯 Current Capabilities
 
-### Completed
+### IOC Investigation
 
-- IOC Classification Engine
-- Reverse DNS Lookup
-- Dependency Modernization
-- Python 3.13 Compatibility Updates
+- IPv4 Detection
+- IPv6 Detection
+- Domain Detection
+- URL Detection
+- Email Detection
+- MD5 Detection
+- SHA1 Detection
+- SHA256 Detection
 
-### In Progress
+### Threat Intelligence
 
 - ASN Lookup
-- Organization Lookup
-- Country Lookup
+- Organization Intelligence
+- Country Intelligence
+- Reverse DNS Analysis
+- Domain Intelligence
 
-### Planned
+### Reputation Analysis
 
-- VirusTotal Integration Improvements
-- AbuseIPDB Integration Improvements
-- AlienVault OTX Integration
-- PDF Report Generation
-- IOC Correlation Engine
-- Threat Intelligence Dashboard
-- Case Management System
-- Reporting Engine
+- VirusTotal
+- AbuseIPDB
+- BadIPs
+- TOR Exit Nodes
+- URLScan
+
+### Security Operations
+
+- IOC Investigation
+- Threat Hunting Support
+- Incident Response Support
+- Reputation Analysis
+- Threat Intelligence Enrichment
 
 ---
 
-## Project Vision
+# 🗺️ Roadmap
 
-The long-term goal of Sooty Enhanced is to become a unified SOC Analyst toolkit that combines:
+## Completed ✅
 
-- IOC Investigation
-- Threat Intelligence
-- Incident Response
-- Threat Hunting
-- Security Operations Automation
-- Reporting & Case Management
+- IOC Investigator
+- IOC Classification Engine
+- ASN Intelligence
+- Organization Intelligence
+- Country Intelligence
+- Reverse DNS Lookup
+- URLScan Integration
+- DNS Toolkit
+- Reputation Checker Enhancements
+- Python 3.13 Compatibility
+- Linux Compatibility Improvements
 
-within a single platform.
+## Planned 🚧
+
+- AlienVault OTX Integration
+- Threat Feed Aggregation
+- IOC Correlation Engine
+- PDF Report Generation
+- Enhanced Threat Intelligence Workflows
+- Multi-Source Intelligence Correlation
+- Investigation Reporting Improvements
 
 ---
 
-## Modernization Progress
+# 🎓 Use Cases
 
-Sooty Enhanced is undergoing a complete modernization effort to transform the original project into a modern SOC Analyst and Threat Intelligence platform.
+Sooty Enhanced can be used for:
 
-### Completed
-
-- IOC Investigator Module
-- IOC Classification Engine
-- Reverse DNS Lookup
-- Python 3.13 Compatibility Improvements
-- Dependency Modernization
-- Updated Project Documentation
-- Enhanced Git Development Workflow
-- Custom Project Branding
-
-### In Progress
-
-- ASN Lookup
-- Organization Lookup
-- Country Lookup
-- Improved IOC Enrichment
-
-### Planned
-
-- VirusTotal Integration
-- AbuseIPDB Integration
-- AlienVault OTX Integration
-- IOC Correlation Engine
-- PDF Report Generation
-- Threat Intelligence Dashboard
-- Reporting Engine
-- Case Management System
-
-### Long-Term Vision
-
-Build a unified platform for:
-
-- IOC Investigation
-- Threat Intelligence
-- Threat Hunting
+- SOC Analyst Investigations
 - Incident Response
-- Security Operations
-- Security Reporting
-- SOC Workflow Automation
-## Maintainer
+- IOC Validation
+- Threat Hunting
+- Threat Intelligence Enrichment
+- Phishing Investigations
+- Malware Investigations
+- Security Research
+- Cybersecurity Learning & Training
 
-### Balwant Singh
+---
+
+# 👨‍💻 Maintainer
+
+## Balwant Singh
 
 Cybersecurity Student  
-SOC Analyst Enthusiast  
-Poornima University
+SOC Analyst Aspirant  
+Poornima University, Jaipur
+
+### Connect
 
 GitHub:
+
 https://github.com/balwant-singh884
 
 ---
 
-## Acknowledgements
+# 🙏 Acknowledgements
 
-Sooty Enhanced is based on the original open-source Sooty project. This fork extends and modernizes the project while preserving the spirit of the original tool.
+Sooty Enhanced is based on the original open-source **Sooty** project created by **TheresAFewConors**.
+
+This project extends the original tool with:
+
+- IOC Investigation Features
+- ASN Intelligence
+- Threat Enrichment
+- Improved Compatibility
+- Enhanced Investigation Workflows
+- Modernized Documentation
+- Ongoing Feature Development
+
+Special thanks to all contributors of the original Sooty project and the open-source cybersecurity community.
 
 ---
 
-## License
+# 📜 License
 
-GPL v3
+Licensed under the **GNU General Public License v3.0 (GPLv3)**.
+
+See the LICENSE file for full details.
+
+---
+
+<p align="center">
+Built with ❤️ for SOC Analysts, Threat Hunters, Incident Responders, and Cybersecurity Students.
+</p>
