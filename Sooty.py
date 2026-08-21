@@ -270,12 +270,15 @@ def decodev2(rewrittenurl):
 
 def decodev3(rewrittenurl):
     match = re.search(r'v3/__(?P<url>.+?)__;', rewrittenurl)
+
     if match:
         url = match.group('url')
-        if re.search(r'\*(\*.)?', url):
-            url = re.sub('\*', '+', url)
-            if url not in linksFoundList:
-                linksFoundList.append(url)
+
+        if '*' in url:
+            url = url.replace('*', '+')
+
+        if url not in linksFoundList:
+            linksFoundList.append(url)
 
 def titleLogo():
     TitleOpen.titleOpen()
@@ -446,9 +449,26 @@ def unshortenUrl():
     print("\n --------------------------------- ")
     print("   U R L   U N S H O R T E N E R  ")
     print(" --------------------------------- ")
-    link = str(input(' Enter URL: ').strip())
-    req = requests.get(str('https://unshorten.me/s/' + link))
-    print(req.text)
+
+    url = input(" Enter URL: ").strip()
+
+    try:
+        response = requests.get(
+            url,
+            allow_redirects=True,
+            timeout=10,
+            headers={"User-Agent": "Mozilla/5.0"}
+        )
+
+        print("Final URL:", response.url)
+        print("Status:", response.status_code)
+        print("Redirect Count:", len(response.history))
+
+        for r in response.history:
+            print("Redirect ->", r.status_code, r.headers.get("Location"))
+
+    except Exception as e:
+        print("Error:", e)
 
     decoderMenu()
 
