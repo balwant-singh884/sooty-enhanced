@@ -110,24 +110,44 @@ def iocInvestigator():
     print("Type          : " + ioc_type)
 
     if ioc_type in ["IPv4", "IPv6"]:
-       try:
-           hostname = socket.gethostbyaddr(ioc)[0]
-           print("Reverse DNS   : " + hostname)
-       except:
-           print("Reverse DNS   : Not found")
+        try:
+            hostname = socket.gethostbyaddr(ioc)[0]
+            print("Reverse DNS   : " + hostname)
+        except:
+            print("Reverse DNS   : Not found")
 
-       try:
-           obj = IPWhois(ioc)
-           result = obj.lookup_rdap()
+        try:
+            obj = IPWhois(ioc)
+            result = obj.lookup_rdap()
 
-           print("ASN           : " + str(result.get("asn", "Unknown")))
-           print("Organization  : " + str(result.get("asn_description", "Unknown")))
-           print("Country       : " + str(result.get("asn_country_code", "Unknown")))
+            print("ASN           : " + str(result.get("asn", "Unknown")))
+            print("Organization  : " + str(result.get("asn_description", "Unknown")))
+            print("Country       : " + str(result.get("asn_country_code", "Unknown")))
 
-       except Exception:
-           print("ASN           : Not available")
-           
-           print("\n========================================")
+        except Exception:
+            print("ASN           : Not available")
+
+    elif ioc_type == "Domain":
+        try:
+            resolved_ip = socket.gethostbyname(ioc)
+
+            print("Resolved IP   : " + resolved_ip)
+
+            try:
+                obj = IPWhois(resolved_ip)
+                result = obj.lookup_rdap()
+
+                print("ASN           : " + str(result.get("asn", "Unknown")))
+                print("Organization  : " + str(result.get("asn_description", "Unknown")))
+                print("Country       : " + str(result.get("asn_country_code", "Unknown")))
+
+            except Exception:
+                print("ASN           : Not available")
+
+        except Exception:
+            print("Resolved IP   : Not available")
+
+    print("\n========================================")
 
     mainMenu()
 

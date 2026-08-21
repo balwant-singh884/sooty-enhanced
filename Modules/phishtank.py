@@ -146,7 +146,9 @@ def urlcheck_online(local_db, user_agent, api_key, url):
             reply = response.json()
             urlReport(local_db, reply["results"])
         else:
-            print("Error reaching PhishTank. Status code " + str(response.status_code))
+            print("Status code:", response.status_code)
+            print("Response body:")
+            print(response.text)
     except Exception as exc:
         print(exc)
 
